@@ -1,9 +1,9 @@
 'use strict';
 
-describe('Directive: petersTodo', function () {
+describe('Directive: myFlusso', function () {
 
   // load the directive's module
-  beforeEach(module('cursusangularApp'));
+  beforeEach(module('giveMeAhugApp'));
 
   var element,
     scope;
@@ -13,8 +13,8 @@ describe('Directive: petersTodo', function () {
   }));
 
   it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<peters-todo></peters-todo>');
+    element = angular.element('<my-flusso></my-flusso>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the petersTodo directive');
+    expect(element.text()).toBe('this is the myFlusso directive');
   }));
 });

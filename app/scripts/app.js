@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name cursusangularApp
+ * @name giveMeAhugApp
  * @description
- * # cursusangularApp
+ * # giveMeAhugApp
  *
  * Main module of the application.
  */
 angular
-  .module('cursusangularApp', [
+  .module('giveMeAhugApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -26,18 +26,6 @@ angular
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
-      })
-      .when('/dag1', {
-        templateUrl: 'views/dag1.html',
-        controller: 'Dag1Ctrl'
-      })
-      .when('/dag2', {
-        templateUrl: 'views/dag2.html',
-        controller: 'Dag2Ctrl'
-      })
-      .when('/dag3', {
-        templateUrl: 'views/dag3.html',
-        controller: 'Dag3Ctrl'
       })
       .otherwise({
         redirectTo: '/'

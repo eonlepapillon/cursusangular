@@ -2,16 +2,20 @@
 
 /**
  * @ngdoc function
- * @name cursusangularApp.controller:MainCtrl
+ * @name giveMeAhugApp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the cursusangularApp
+ * Controller of the giveMeAhugApp
  */
-angular.module('cursusangularApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+angular.module('giveMeAhugApp')
+  .controller('MainCtrl', ['$scope', 'GiveMeAFactory',function ($scope, GiveMeAFactory) {
+      $scope.awesomeThings = GiveMeAFactory.get();
+
+      $scope.voegToe = function(text) {
+        $scope.awesomeThings.push(text);
+      };
+
+      $scope.haalWeg = function(index) {
+        $scope.awesomeThings.splice(index, 1);
+      };
+    }]);
