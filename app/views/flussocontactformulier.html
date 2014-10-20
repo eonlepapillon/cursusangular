@@ -7,27 +7,37 @@
     </div>
   </div>
 
-  <div class="form-group" ng-class="{'has-error': fcf.street.$invalid || fcf.address.$invalid}">
-    <label class="col-sm-2 control-label" for="street">Adres</label>
-    <div class="col-sm-8">
-      <input class="form-control" type="text" id="street" name="street" ng-model="contact.street" ng-trim/>
+  <div class="form-group" ng-class="{'has-error': (fcf.zipcode.$dirty && fcf.zipcode.$invalid) || fcf.address.$invalid}">
+    <label class="col-sm-2 control-label" for="zipcode">Postcode + huisnummer</label>
+    <div class="col-sm-4">
+      <input class="form-control" type="text" id="zipcode" name="zipcode" ng-model="contact.zipcode" ng-model-options="{updateOn: 'blur'}" placeholder="1234 AB" ng-pattern="/[1-9][0-9]{3}\s?[a-zA-Z]{2}/" ng-trim ng-blur="getPostcodeData(contact)"/>
     </div>
     <div class="col-sm-2">
-      <input class="form-control" type="number" id="address" name="address" ng-model="contact.address" ng-min="0" integer/>
+      <input class="form-control" type="number" id="address" name="address" ng-model="contact.address"ng-min="0" integer ng-blur="getPostcodeData(contact)"/>
     </div>
   </div>
 
-  <div class="form-group" ng-class="{'has-error': fcf.zipcode.$dirty && fcf.zipcode.$invalid}">
-    <label class="col-sm-2 control-label" for="zipcode">Postcode</label>
-    <div class="col-sm-10">
-      <input class="form-control" type="text" id="zipcode" name="zipcode" ng-model="contact.zipcode" ng-model-options="{updateOn: 'blur'}" placeholder="1234 AB" ng-pattern="/[1-9][0-9]{3}\s?[a-zA-Z]{2}/" ng-trim/>
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="street">Adres</label>
+    <div class="col-sm-8">
+      <p class="form-control-static">{{contact.street}}</p>
+    </div>
+    <div class="col-sm-2">
+      <p class="form-control-static">{{contact.address}}</p>
     </div>
   </div>
 
-  <div class="form-group" ng-class="{'has-error': fcf.residence.$invalid}">
-    <label class="col-sm-2 control-label" for="residence">Woonplaats</label>
+  <div class="form-group">
+      <label class="col-sm-2 control-label">Postcode</label>
+      <div class="col-sm-10">
+        <p class="form-control-static">{{contact.zipcode}}</p>
+      </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Woonplaats</label>
     <div class="col-sm-10">
-      <input class="form-control" type="text" id="residence" name="residence" ng-model="contact.residence" ng-pattern="/[a-zA-Z\/\-]+/" ng-trim/>
+      <p class="form-control-static">{{contact.residence}}</p>
     </div>
   </div>
 

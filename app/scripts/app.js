@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'postcode.data'
   ])
   .config(function ($routeProvider) {
     $routeProvider
