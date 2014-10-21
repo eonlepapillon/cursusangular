@@ -16,7 +16,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'postcode.data'
+    'postcode.data',
+    'leaflet-directive'
   ])
   .config(function ($routeProvider) {
     $routeProvider
